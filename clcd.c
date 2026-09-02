@@ -1,5 +1,9 @@
 #include <xc.h>
 #include "clcd.h"
+#include "Clock.h"
+
+unsigned char line1_buffer[17] = "   RTC   GEAR SPD";
+unsigned char line2_buffer[17];
 
 void clcd_write(unsigned char byte, unsigned char control_bit)
 {
@@ -52,4 +56,9 @@ void clcd_putch(const unsigned char data, unsigned char addr)
 {
 	clcd_write(addr, INSTRUCTION_COMMAND);
 	clcd_write(data, DATA_COMMAND);
+}
+
+void get_line2(unsigned char line2_buffer[])
+{
+     sprintf(line2_buffer,"%02d:%02d:%02d",hr,min,sec);
 }

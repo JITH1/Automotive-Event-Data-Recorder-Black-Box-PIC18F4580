@@ -1,6 +1,8 @@
 #ifndef LCD_H
 #define LCD_H
 
+#include<stdio.h>
+
 #define CLCD_PORT			PORTD
 #define CLCD_EN				RC2
 #define CLCD_RS				RC1
@@ -25,6 +27,9 @@
 #define CLEAR_DISP_SCREEN				                clcd_write(0x01, INSTRUCTION_COMMAND)
 #define CURSOR_HOME							clcd_write(0x02, INSTRUCTION_COMMAND)
 #define DISP_ON_AND_CURSOR_OFF						clcd_write(0x0C, INSTRUCTION_COMMAND)
+
+extern unsigned char print_line1[17];
+extern unsigned char print_line2[17];
 
 void init_clcd(void);
 void clcd_print(const unsigned char *data, unsigned char addr);
