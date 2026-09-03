@@ -61,5 +61,5 @@ void clcd_putch(const unsigned char data, unsigned char addr)
 
 void get_line2(unsigned char line2_buffer[])
 {
-     sprintf(line2_buffer,"%02d:%02d:%02d  %u",hr,min,sec,speed);
+     sprintf(line2_buffer,"%02d:%02d:%02d  %u",hr,min,sec,(unsigned int)(speed/10.23));
 }
