@@ -9,7 +9,7 @@ volatile unsigned char count = 0;
 
 void _init_timer1(void)
 {
-    
+
     PIE1bits.TMR1IE = TIMER1_INTERRUPT_SET;
     PIR1bits.TMR1IF = TIMER1_INTERRUPT_FLAG;
     
@@ -22,33 +22,3 @@ void _init_timer1(void)
     TMR1 = TIMER1_PRELOAD ;
 
 }
-
-void __interrupt() isr(void)
-{
-    if(PIR1bits.TMR1IF == 1)
-    {
-        count++;
-        TMR1 = TIMER1_PRELOAD ;
-
-        if(count == 50)
-        {
-            count =0;
-            sec++;
-            
-            if(sec == 60)
-            {
-                sec = 0;
-                min = ++min ;
-
-                if(min%60 == 0)
-                {
-                    min = 0;
-                    hr = (++hr)%24;
-                }
-            }
-        }
-
-        PIR1bits.TMR1IF = 0;
-    }
-}
-

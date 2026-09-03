@@ -28,12 +28,13 @@
 #define CURSOR_HOME							clcd_write(0x02, INSTRUCTION_COMMAND)
 #define DISP_ON_AND_CURSOR_OFF						clcd_write(0x0C, INSTRUCTION_COMMAND)
 
-extern unsigned char print_line1[17];
-extern unsigned char print_line2[17];
+extern unsigned char line1_buffer[17];
+extern unsigned char line2_buffer[17];
 
 void init_clcd(void);
 void clcd_print(const unsigned char *data, unsigned char addr);
 void clcd_putch(const unsigned char data, unsigned char addr);
 void clcd_write(unsigned char bit_values, unsigned char control_bit);
+void get_line2(unsigned char line2_buffer[]);
 
 #endif

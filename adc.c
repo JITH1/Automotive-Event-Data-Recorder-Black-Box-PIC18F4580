@@ -37,13 +37,3 @@ void _get_speed()
 {
     CONVERSION_STATUS_BIT = 1;
 }
-
-void __interrupt() isr(void)
-{
-    if(ADC_INTERRUPT_FLAG == 1)
-    {
-        speed = ((unsigned int)ADC_RESULT_HIGH_REG<<8) | (unsigned int)ADC_RESULT_LOW_REG ;
-        ADC_INTERRUPT_FLAG = 0;
-    }
-
-}
