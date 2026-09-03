@@ -1,8 +1,6 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
-#define GLOBAL_INTERRUPT_SET           1
-#define PERIPHERAL_INTERRUPT_SET      1
 #define TIMER1_INTERRUPT_SET           1
 #define TIMER1_INTERRUPT_FLAG          0
 #define TIMER1_PRESCALE_BIT_1          0

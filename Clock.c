@@ -9,8 +9,7 @@ volatile unsigned char count = 0;
 
 void _init_timer1(void)
 {
-    INTCONbits.GIE = GLOBAL_INTERRUPT_SET;
-    INTCONbits.PIE = PERIPHERAL_INTERRUPT_SET;
+    
     PIE1bits.TMR1IE = TIMER1_INTERRUPT_SET;
     PIR1bits.TMR1IF = TIMER1_INTERRUPT_FLAG;
     

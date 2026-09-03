@@ -1,11 +1,15 @@
 #include<xc.h>
-#include"Clock.h"
-#include"clcd.h"
+#include "Clock.h"
+#include "clcd.h"
+#include "adc.h"
+
 
 void main()
 {
+    _enable_interrupt();
     _init_timer1();
     init_clcd();
+    _init_adc();
 
     while()
     {
