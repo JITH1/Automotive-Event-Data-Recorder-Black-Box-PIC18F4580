@@ -4,7 +4,7 @@
 void _enable_interrupt()
 {
     INTCONbits.GIE = GLOBAL_INTERRUPT_SET;
-    INTCONbits.PIE = PERIPHERAL_INTERRUPT_SET;
+    INTCONbits.PEIE = PERIPHERAL_INTERRUPT_SET;
 }
 
 void __interrupt() isr(void)
