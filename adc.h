@@ -1,10 +1,10 @@
 #ifndef ADC_H
 #define ADC_H
 
-#define CHANNEL5_BIT_3         0
-#define CHANNEL5_BIT_2         1
-#define CHANNEL5_BIT_1         0
-#define CHANNEL5_BIT_0         1
+#define CHANNEL4_BIT_3         0
+#define CHANNEL4_BIT_2         1
+#define CHANNEL4_BIT_1         0
+#define CHANNEL4_BIT_0         0
 
 #define CHANNEL_SELECT_BIT_3   ADCON0bits.CHS3 
 #define CHANNEL_SELECT_BIT_2   ADCON0bits.CHS2
