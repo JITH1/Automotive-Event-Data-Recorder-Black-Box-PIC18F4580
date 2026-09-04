@@ -3,6 +3,7 @@
 #include "clcd.h"
 #include "adc.h"
 #include "Enable.h"
+#include "Matrix_keypad.h"
 
 
 void main()
@@ -11,9 +12,11 @@ void main()
     _init_timer1();
     init_clcd();
     _init_adc();
+    _init_matrix_key();
 
     while(1)
     {
+         
         _get_speed();
         get_line2(line2_buffer);
         clcd_print(line1_buffer,LINE1(0));

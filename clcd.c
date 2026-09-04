@@ -2,6 +2,7 @@
 #include "clcd.h"
 #include "Clock.h"
 #include "adc.h"
+#include "Matrix_keypad.h"
 
 unsigned char line1_buffer[17] = "   RTC   GEAR SPD";
 unsigned char line2_buffer[17];
