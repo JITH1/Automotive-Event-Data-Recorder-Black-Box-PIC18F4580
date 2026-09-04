@@ -1,7 +1,7 @@
 #include<xc.h>
 #include "Matrix_keypad.h"
 
-unsigned char key = 0;
+unsigned char key ;
 unsigned char gear = 0;
 unsigned char gear_buff[6] = {'N','1','2','3','4','5'};
 
