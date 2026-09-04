@@ -16,7 +16,7 @@ void main()
 
     while(1)
     {
-         
+        _switch_function();
         _get_speed();
         get_line2(line2_buffer);
         clcd_print(line1_buffer,LINE1(0));

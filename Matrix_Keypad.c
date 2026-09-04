@@ -1,8 +1,8 @@
 #include<xc.h>
 #include "Matrix_keypad.h"
 
-unsigned char key ;
-unsigned char gear ;
+unsigned char key = 0;
+unsigned char gear = 0;
 unsigned char gear_buff[6] = {'N','1','2','3','4','5'};
 
 void _init_matrix_key(void)
@@ -80,7 +80,7 @@ void _switch_function()
 
      key = _read_key();
          
-     if(key == 1)
+     if(key == MK_SW1)
      {
          if(gear < 5)
          {
@@ -88,7 +88,7 @@ void _switch_function()
          }
     
      }
-     else if(key == 2)
+     else if(key == MK_SW2)
      {
         if(gear > 0)
         {
