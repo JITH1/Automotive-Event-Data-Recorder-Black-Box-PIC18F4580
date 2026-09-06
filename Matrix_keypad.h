@@ -30,6 +30,7 @@
 extern unsigned char key;
 extern unsigned char gear_buff[6];
 extern unsigned char gear ;
+extern unsigned char collision_flag;
 
 void _init_matrix_key(void);
 unsigned char _read_switch(void);

@@ -4,6 +4,7 @@
 #include "adc.h"
 #include "Enable.h"
 #include "Matrix_keypad.h"
+#include "I2c.h"
 
 
 void main()
@@ -13,6 +14,7 @@ void main()
     init_clcd();
     _init_adc();
     _init_matrix_key();
+    I2C_init();
 
     while(1)
     {

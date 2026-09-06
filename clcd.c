@@ -62,5 +62,13 @@ void clcd_putch(const unsigned char data, unsigned char addr)
 
 void get_line2(unsigned char line2_buffer[])
 {
-     sprintf(line2_buffer,"%02d:%02d:%02d  %c   %u",hr,min,sec,gear_buff[gear],(unsigned int)(speed/10.23));
+     if(collision_flag)
+	 {
+        sprintf(line2_buffer,"CRASH - %02d:%02d:%02d",hr,min,sec);
+		collision_flag = 0; 
+	 }
+	 else
+	 {
+		sprintf(line2_buffer,"%02d:%02d:%02d  %c   %u",hr,min,sec,gear_buff[gear],(unsigned int)(speed/10.23));
+	 }
 }

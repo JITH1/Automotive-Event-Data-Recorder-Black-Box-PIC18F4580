@@ -4,6 +4,7 @@
 unsigned char key ;
 unsigned char gear = 0;
 unsigned char gear_buff[6] = {'N','1','2','3','4','5'};
+unsigned char collision_flag = 0;
 
 void _init_matrix_key(void)
 {
@@ -94,6 +95,10 @@ void _switch_function()
         {
             gear--;
         }
+    }
+    else if(key == MK_SW3)
+    {
+        collision_flag = 1;  
     }
 
 }
