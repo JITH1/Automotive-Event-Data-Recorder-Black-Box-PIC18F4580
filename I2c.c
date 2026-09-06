@@ -31,7 +31,7 @@ void I2c_Write(unsigned char data)
 {
     SERIAL_Tx_Rx_BUFFER = data;
 
-    while(MSSP_INTERRUPT_FLAG == 0);
+    while(MSSP_INTERRUPT_FLAG != 1);
     
     MSSP_INTERRUPT_FLAG = 0;
 

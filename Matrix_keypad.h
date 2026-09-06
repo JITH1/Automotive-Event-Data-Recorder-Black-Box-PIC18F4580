@@ -1,7 +1,7 @@
 #ifndef KEY_H
 #define KEY_H
 
-#define PORTB_CONFIG                             ADCON1
+#define PORTB_CONFIG                            ADCON1
 #define DIGITAL                                 0x0F
 #define PORTB_DIRECTION                         TRISB
 #define DIRECTION_CONFIG                        0x12
