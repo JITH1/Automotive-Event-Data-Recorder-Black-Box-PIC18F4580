@@ -12,8 +12,8 @@ void main()
     _enable_interrupt();
     _init_timer1();
     init_clcd();
-    _init_adc();
     _init_matrix_key();
+    _init_adc();
     I2C_init();
 
     while(1)

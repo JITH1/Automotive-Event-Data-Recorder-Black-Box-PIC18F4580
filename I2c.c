@@ -24,7 +24,7 @@ void I2C_init()
 void I2c_Start()
 {
     START_BIT = INITIATE_ON_SDA_SCL;
-    while(START_COND);
+    while(START_BIT);
 }
 
 void I2c_Write(unsigned char data)
