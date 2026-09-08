@@ -8,5 +8,6 @@ extern volatile unsigned char address ;
 void EEPROM_wrtie(unsigned char *Tx_string);
 void EEPROM_read(unsigned char str[][17]);
 void EEPROM_clear(void);
+void EEPROM_wait_ready(void);
 
 #endif

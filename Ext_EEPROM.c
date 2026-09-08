@@ -21,6 +21,7 @@ void EEPROM_wrtie(unsigned char *Tx_string)
      }
      
      I2c_Stop();
+     EEPROM_wait_ready();
      
      I2c_Start();
      I2c_Write(0xA0);
@@ -32,6 +33,7 @@ void EEPROM_wrtie(unsigned char *Tx_string)
      }
 
      I2c_Stop();
+     EEPROM_wait_ready();
 
      if(write_count < 16)
      {
@@ -108,18 +110,52 @@ void EEPROM_clear()
 
         I2c_Write(clear * 16);
 
-        for(int i = 0 ; i < 16 ; i++)
+        for(int i = 0 ; i < 8 ; i++)
         {
             I2c_Write(0x00);
         }
 
         I2c_Stop();
+        EEPROM_wait_ready();
 
+        I2c_Start();
+
+        I2c_Write(0xA0);
+
+        I2c_Write((clear*16)+8);
+
+        for(int i = 0 ; i < 8 ; i++)
+        {
+            I2c_Write(0x00);
+        }
+
+        I2c_Stop();
+        EEPROM_wait_ready();
+        
         clear++;
+        
     }
 
     write_count = 0;
     address = 0x00;
+
+}
+
+void EEPROM_wait_ready()
+{
+    do
+    {
+        I2c_Start();
+
+        SERIAL_Tx_Rx_BUFFER = 0xA0;
+
+        while(MSSP_INTERRUPT_FLAG != 1);
+
+        MSSP_INTERRUPT_FLAG = 0;
+
+    } while(SSPCON2bits.ACKSTAT);   // ACKSTAT=1 means NACK, still busy
+
+    I2c_Stop();
 
 }
 
