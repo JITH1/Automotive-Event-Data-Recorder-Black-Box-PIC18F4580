@@ -5,6 +5,7 @@
 #include "Enable.h"
 #include "Matrix_keypad.h"
 #include "I2c.h"
+#include "UART.h"
 
 
 void main()
@@ -15,6 +16,7 @@ void main()
     _init_matrix_key();
     _init_adc();
     I2C_init();
+    init_uart();
 
     while(1)
     {
