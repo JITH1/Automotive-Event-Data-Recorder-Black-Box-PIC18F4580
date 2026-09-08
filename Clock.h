@@ -16,6 +16,8 @@ extern volatile unsigned char hr;
 
 extern volatile unsigned char count;
 
+extern volatile unsigned char hold_collision ;
+
 void _init_timer1(void);
 
 #endif
