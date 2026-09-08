@@ -12,12 +12,21 @@ void EEPROM_wrtie(unsigned char *Tx_string)
 {
 
      I2c_Start();
-
      I2c_Write(0xA0);
-     
      I2c_Write(address);
 
-     for(int i = 0; i<16 ; i++)
+     for(int i = 0; i<8 ; i++)
+     {
+         I2c_Write(Tx_string[i]);
+     }
+     
+     I2c_Stop();
+     
+     I2c_Start();
+     I2c_Write(0xA0);
+     I2c_Write(address+8);
+     
+     for(int i = 8; i<16 ; i++)
      {
          I2c_Write(Tx_string[i]);
      }
