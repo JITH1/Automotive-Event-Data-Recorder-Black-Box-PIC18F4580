@@ -19,6 +19,11 @@ void __interrupt() isr(void)
     {
         count++;
         TMR1 = TIMER1_PRELOAD ;
+        
+        if(hold_collision > 0)
+        {
+            hold_collision-- ;
+        }    
 
         if(count == 50)
         {
