@@ -19,6 +19,7 @@
 #define MK_SW2                                  2
 #define MK_SW3                                  3
 
+#define MK_SW10                                 10
 #define MK_SW11                                 11
 #define MK_SW12                                 12
 

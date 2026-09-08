@@ -1,5 +1,9 @@
 #include<xc.h>
 #include "Matrix_keypad.h"
+#include "Clock.h"
+#include "clcd.h"
+#include "Ext_EEPROM.h"
+#include "UART.h"
 
 unsigned char key ;
 unsigned char gear = 0;
@@ -27,6 +31,10 @@ unsigned char _read_switch()
     {
         return MK_SW1;
     }
+    else if(COL4 == 0)
+    {
+        return MK_SW10;
+    }    
 
     ROW1 = HIGH;
     ROW2 = LOW;
@@ -44,7 +52,8 @@ unsigned char _read_switch()
     ROW1 = HIGH;
     ROW2 = HIGH;
     ROW3 = LOW;
-    ROW3 = LOW;
+        ROW3 = LOW;
+
 
     if(COL1 == 0)
     {
@@ -101,8 +110,21 @@ void _switch_function()
     }
     else if(key == MK_SW3)
     {
-        collision_flag = 1;  
+        collision_flag = 1;
+        hold_collision = 100;
     }
+    else if(key == MK_SW10)
+    {
+        
+        EEPROM_read(store_string);
+        
+        for(int i = 0; i<write_count ; i++)
+        {
+            puts(store_string[i]);
+            puts("\r\n");
+        } 
+        
+    }    
 
 }
 
