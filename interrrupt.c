@@ -1,6 +1,7 @@
 #include<xc.h>
 #include "Enable.h"
 
+
 void _enable_interrupt()
 {
     INTCONbits.GIE = GLOBAL_INTERRUPT_SET;
@@ -20,9 +21,19 @@ void __interrupt() isr(void)
         count++;
         TMR1 = TIMER1_PRELOAD ;
         
-        if(hold_collision > 0)
+        if(hold > 0)
         {
-            hold_collision-- ;
+            hold-- ;
+        }
+        
+        if(scroll > 0)
+        {
+            scroll--;
+        }
+        
+        if(menu_timer > 0)
+        {
+            menu_timer--;
         }    
 
         if(count == 50)
