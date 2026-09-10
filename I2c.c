@@ -25,6 +25,7 @@ void I2c_Start()
 {
     START_BIT = INITIATE_ON_SDA_SCL;
     while(START_BIT);
+    MSSP_INTERRUPT_FLAG = 0;
 }
 
 void I2c_Write(unsigned char data)
@@ -41,6 +42,7 @@ void I2c_Stop()
 {
     STOP_BIT = INITIATE_STOP;
     while(STOP_BIT);
+    MSSP_INTERRUPT_FLAG = 0;
 }
 
 unsigned char I2c_Read()
@@ -63,7 +65,7 @@ void I2c_ACK()
     ACKNOWLEDGE_SEQU_ENABLE = INITIATE_ACK_SEQU;
 
     while(ACKNOWLEDGE_SEQU_ENABLE);
-
+    MSSP_INTERRUPT_FLAG = 0;
 }
 
 void I2c_NACK(void)
@@ -72,7 +74,7 @@ void I2c_NACK(void)
     ACKNOWLEDGE_SEQU_ENABLE = INITIATE_ACK_SEQU;
 
     while(ACKNOWLEDGE_SEQU_ENABLE);
-
+    MSSP_INTERRUPT_FLAG = 0;
 }
 
 
