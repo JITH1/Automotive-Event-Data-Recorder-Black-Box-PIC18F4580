@@ -2,6 +2,7 @@
 #include "Ext_EEPROM.h"
 #include "I2c.h"
 #include "clcd.h"
+#include "Clock.h"
 
 volatile unsigned char write_count = 0;
 volatile unsigned char address = 0x00;
@@ -51,7 +52,7 @@ void EEPROM_read(unsigned char str[][17])
 
      if(write_count == 0)
      {
-          clcd_print("EEPROM EMPTY",LINE2(4));
+          clcd_print("EEPROM EMPTY",LINE2(0));
           return;
      }
 
@@ -88,6 +89,8 @@ void EEPROM_read(unsigned char str[][17])
      }
 
      I2c_Stop();
+     
+     
 
 }
 
@@ -95,7 +98,13 @@ void EEPROM_clear()
 {
     if(write_count == 0)
     {
-        clcd_print("EEPROM EMPTY",LINE2(4));
+        scroll = 100;
+        
+        while(scroll)
+        {
+            clcd_print("EEPROM EMPTY    ",LINE1(0));
+            clcd_print("                ",LINE2(0));
+        }    
         return;
     }
     
@@ -138,7 +147,16 @@ void EEPROM_clear()
 
     write_count = 0;
     address = 0x00;
-
+    
+    scroll = 100;
+        
+    while(scroll)
+    {
+        clcd_print("EEPROM CLEARED  ",LINE1(0));
+        clcd_print("                ",LINE2(0));
+    } 
+    
+    return ;
 }
 
 void EEPROM_wait_ready()
