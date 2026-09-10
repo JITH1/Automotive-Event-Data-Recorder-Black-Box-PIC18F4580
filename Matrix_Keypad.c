@@ -4,6 +4,7 @@
 #include "clcd.h"
 #include "Ext_EEPROM.h"
 #include "UART.h"
+#include "Menu.h"
 
 unsigned char key ;
 unsigned char gear = 0;
@@ -111,19 +112,11 @@ void _switch_function()
     else if(key == MK_SW3)
     {
         collision_flag = 1;
-        hold_collision = 100;
+        hold = 100;
     }
-    else if(key == MK_SW10)
+    else if(key == MK_SW11)
     {
-        
-        EEPROM_read(store_string);
-        
-        for(int i = 0; i<write_count ; i++)
-        {
-            puts(store_string[i]);
-            puts("\r\n");
-        } 
-        
+        display_menu();
     }    
 
 }
