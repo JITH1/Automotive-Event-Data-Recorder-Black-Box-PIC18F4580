@@ -16,7 +16,9 @@ extern volatile unsigned char hr;
 
 extern volatile unsigned char count;
 
-extern volatile unsigned char hold_collision ;
+extern volatile unsigned char hold ;
+
+extern volatile unsigned char scroll;
 
 void _init_timer1(void);
 

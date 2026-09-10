@@ -7,7 +7,9 @@ volatile unsigned char hr = 0;
 
 volatile unsigned char count = 0;
 
-volatile unsigned char hold_collision = 0;
+volatile unsigned char hold = 0;
+
+volatile unsigned char scroll = 0;
 
 void _init_timer1(void)
 {
