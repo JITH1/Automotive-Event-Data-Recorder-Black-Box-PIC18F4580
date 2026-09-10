@@ -63,7 +63,7 @@ void clcd_putch(const unsigned char data, unsigned char addr)
 
 void get_line2(unsigned char line2_buffer[])
 {
-     if(hold_collision)
+     if(hold)
 	 {
         if(collision_flag)
         {
