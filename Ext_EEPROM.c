@@ -5,7 +5,7 @@
 #include "Clock.h"
 
 volatile unsigned char write_count = 0;
-volatile unsigned char address = 0x08;
+volatile unsigned char address = 0x08;    // Write Starting address
 
 unsigned char store_string[16][17];
 
