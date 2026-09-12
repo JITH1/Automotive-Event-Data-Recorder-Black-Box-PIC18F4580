@@ -66,15 +66,16 @@ void view_log()
 {
     EEPROM_read(store_string);
     menu_timer = 0x04E2;
-    scroll = 100;
     
     if(!write_count)
     {
+        scroll = 100;
         while(scroll)
         {
             clcd_print("EEPROM IS EMPTY",LINE1(0));
             clcd_print("                ",LINE2(0));
-        }    
+        }  
+        
         return ;
     }
     else 
@@ -123,6 +124,9 @@ void view_log()
 
 void download_log()
 {
+    
+    EEPROM_read(store_string);
+     
     if(!write_count)
     {
         puts("EEPROM IS EMPTY...!");
@@ -130,10 +134,7 @@ void download_log()
         return;
     }    
         
-    EEPROM_read(store_string);
-    
     puts("\r\n/----BLACK BOX LOG----/\r\n\r\n");
-    puts("   RTC   GEAR SPEED\r\n\r\n");
         
     for(int i = 0; i<write_count ; i++)
     {
