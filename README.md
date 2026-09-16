@@ -1,6 +1,6 @@
 # 🚗 Automotive Event Data Recorder — Black Box (PIC18F4580)
  
-A single-node automotive "black box" built on a PIC18F4580, logging gear changes and crash/impact events with an RTC-stamped timestamp into external I2C EEPROM — modeled after a real vehicle Event Data Recorder (EDR).
+A single-node automotive "black box" built on a PIC18F4580, logging gear changes and crash/impact events with an RTC-stamped timestamp into external EEPROM — modeled after a real vehicle Event Data Recorder (EDR). **Built 2 core embedded protocols : I2C (RTC + EEPROM communication) and UART (serial log download)**.
  
 ## 📋 Overview
  
