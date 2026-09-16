@@ -4,6 +4,7 @@
 #include "adc.h"
 #include "Clock.h"
 #include "Menu.h"
+#include "ds1307.h"
 
 #define GLOBAL_INTERRUPT_SET           1
 #define PERIPHERAL_INTERRUPT_SET       1
