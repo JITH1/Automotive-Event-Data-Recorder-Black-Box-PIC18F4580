@@ -4,6 +4,7 @@
 #include "adc.h"
 #include "Matrix_keypad.h"
 #include "Ext_EEPROM.h"
+#include "ds1307.h"
 
 unsigned char line1_buffer[17] = "  RTC   GEAR SPD";
 unsigned char line2_buffer[17];
@@ -67,17 +68,17 @@ void get_line2(unsigned char line2_buffer[])
 	 {
         if(collision_flag)
         {
-           sprintf(line2_buffer,"CRASH - %02d:%02d:%02d",hr,min,sec);
+           sprintf(line2_buffer,"CRASH - %s",time);
            EEPROM_wrtie(line2_buffer);
            collision_flag = 0;
         }     
 		
-        sprintf(line2_buffer,"CRASH - %02d:%02d:%02d",hr,min,sec);
+        sprintf(line2_buffer,"CRASH - %s",time);
         
 	 }
      else if(gear == 0)
      {
-         sprintf(line2_buffer,"%02d:%02d:%02d  %c  %03u",hr,min,sec,gear_buff[gear],0);
+         sprintf(line2_buffer,"%s  %c  %03u",time,gear_buff[gear],0);
          
          if(gear_flag)
          {
@@ -87,7 +88,7 @@ void get_line2(unsigned char line2_buffer[])
      }    
 	 else
 	 {
-		sprintf(line2_buffer,"%02d:%02d:%02d  %c  %03u",hr,min,sec,gear_buff[gear],(unsigned int)((unsigned long)speed * 100UL / 1023UL));
+		sprintf(line2_buffer,"%s  %c  %03u",time,gear_buff[gear],(unsigned int)((unsigned long)speed * 100UL / 1023UL));
 
 		if(gear_flag)
 		{
