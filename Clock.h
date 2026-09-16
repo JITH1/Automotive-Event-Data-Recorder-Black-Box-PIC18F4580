@@ -10,12 +10,6 @@
 #define TIMER1_ENABLE                  1
 #define TIMER1_PRELOAD                 15536
 
-extern volatile unsigned char sec;
-extern volatile unsigned char min;
-extern volatile unsigned char hr;
-
-extern volatile unsigned char count;
-
 extern volatile unsigned char hold ;
 
 extern volatile unsigned char scroll;

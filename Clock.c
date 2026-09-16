@@ -1,12 +1,6 @@
 #include<xc.h>
 #include"Clock.h"
 
-volatile unsigned char sec = 0;
-volatile unsigned char min = 0;
-volatile unsigned char hr = 0;
-
-volatile unsigned char count = 0;
-
 volatile unsigned char hold = 0;
 
 volatile unsigned char scroll = 0;
