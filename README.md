@@ -59,6 +59,37 @@ This project simulates a simplified in-vehicle black box: live gear + speed tele
 - 🖥️ **On-device menu system** (View Log / Download Log / Set Log (RTC) / Clear Log) navigated entirely from the matrix keypad
 - 📶 **UART log download** — dumps the complete black-box log as readable text over serial
 - ⏱️ **Timer1-interrupt-driven timeouts** for scroll/hold/menu, decoupled from the main polling loop
+
+-------
+
+## Working Demonstration 📽️
+
+
+- 📃 View Option Demo
+
+
+https://github.com/user-attachments/assets/caf3b312-3005-44ce-ac6c-3261c11519d6
+
+
+- Download Log Demo : UART Tx 📡
+
+
+https://github.com/user-attachments/assets/2779c6b8-0796-4383-a94b-9c4167a63a70
+
+
+- Set Log Demo : I2c - DS1307 ⏱️ Update
+
+  
+https://github.com/user-attachments/assets/8e40a761-471c-4b43-84b7-579e912abc9f
+
+
+- Clear Log Demo : I2c - 24C04 (Ext EEPROM) Clear 🔧
+
+
+https://github.com/user-attachments/assets/a1f7509b-d33b-42d7-914d-e6f6878117e8
+
+
+-------
 ## 🔧 Hardware
  
 - 🧠 PIC18F4580 microcontroller
