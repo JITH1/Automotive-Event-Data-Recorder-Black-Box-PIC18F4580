@@ -6,6 +6,7 @@
 #include "Matrix_keypad.h"
 #include "I2c.h"
 #include "UART.h"
+#include "ds1307.h"
 
 
 void main()
@@ -17,9 +18,11 @@ void main()
     _init_adc();
     I2C_init();
     init_uart();
+    init_ds1307();
 
     while(1)
     {
+        get_time();
         _switch_function();
         _get_speed();
         get_line2(line2_buffer);
