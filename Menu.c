@@ -5,6 +5,7 @@
 #include "clcd.h"
 #include "Ext_EEPROM.h"
 #include "UART.h"
+#include "ds1307.h"
 
 volatile unsigned int menu_timer = 0;
 
@@ -50,7 +51,7 @@ void display_menu()
                 }
                 else if((op == MK_SW11) && (down == 2))
                 {
-                    // Set Log
+                    set_RTC();
                 }
                 else if((op == MK_SW11) && (down == 3))
                 {
