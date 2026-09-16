@@ -18,7 +18,7 @@ void __interrupt() isr(void)
     
     if(PIR1bits.TMR1IF == 1)
     {
-        count++;
+       
         TMR1 = TIMER1_PRELOAD ;
         
         if(hold > 0)
@@ -34,25 +34,17 @@ void __interrupt() isr(void)
         if(menu_timer > 0)
         {
             menu_timer--;
-        }    
-
-        if(count == 50)
-        {
-            count =0;
-            sec++;
-            
-            if(sec == 60)
-            {
-                sec = 0;
-                min = ++min ;
-
-                if(min%60 == 0)
-                {
-                    min = 0;
-                    hr = (++hr)%24;
-                }
-            }
         }
+        
+        if(log_hold > 0)
+        {
+            log_hold--;
+        }
+        
+        if(field_hold > 0)
+        {
+            field_hold--;
+        }    
 
         PIR1bits.TMR1IF = 0;
     }
