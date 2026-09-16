@@ -70,19 +70,19 @@ This project simulates a simplified in-vehicle black box: live gear + speed tele
 
 https://github.com/user-attachments/assets/caf3b312-3005-44ce-ac6c-3261c11519d6
 
-
+---
 - Download Log Demo : UART Tx 📡
 
 
 https://github.com/user-attachments/assets/2779c6b8-0796-4383-a94b-9c4167a63a70
 
-
+---
 - Set Log Demo : I2c - DS1307 ⏱️ Update
 
   
 https://github.com/user-attachments/assets/8e40a761-471c-4b43-84b7-579e912abc9f
 
-
+---
 - Clear Log Demo : I2c - 24C04 (Ext EEPROM) Clear 🔧
 
 
