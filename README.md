@@ -6,36 +6,9 @@ A single-node automotive "black box" built on a PIC18F4580, logging gear changes
  
 This project simulates a simplified in-vehicle black box: live gear + speed telemetry is shown on a character LCD dashboard, key driving events (gear shifts, simulated crash/impact) are timestamped using a DS1307 RTC and written to non-volatile external EEPROM, and the full log can be reviewed on-device or downloaded over UART — the same core idea used in real automotive EDR / crash-data-recorder systems.
  
-```
-+------------------+       +------------------+
-|  Matrix Keypad   |       |   Potentiometer  |
-|  Gear Up/Down    |       |   (Speed - ADC)  |
-|  Crash / Menu    |       +--------+---------+
-+--------+---------+                |
-         |                          |
-         v                          v
-+-----------------------------------------------+
-|                 PIC18F4580 (MCU)               |
-|   Timer1 tick  |  ADC  |  Matrix Keypad scan   |
-+------+----------------------------+------------+
-       |                            |
-       v                            v
-+--------------+           +------------------+
-|  16x2 CLCD   |           |  DS1307 RTC (I2C)|
-|  live status |           |  timestamps      |
-+--------------+           +--------+---------+
-                                    |
-                                    v
-                         +--------------------+
-                         | External EEPROM    |
-                         | (I2C, event log)   |
-                         +--------+-----------+
-                                  |
-                                  v
-                         +--------------------+
-                         |   UART (log dump)  |
-                         +--------------------+
-```
+
+<img width="3089" height="8603" alt="diagram" src="https://github.com/user-attachments/assets/c07d7c6b-46af-4caf-ac5d-20d00219bc11" />
+
  
 ## 🧩 Core Modules
  
